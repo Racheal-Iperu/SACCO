@@ -3,18 +3,15 @@ package com.example.sample.service;
 import com.example.sample.model.User;
 import com.example.sample.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     public User registerUser(String username, String email, String password) {
@@ -25,12 +22,10 @@ public class UserService {
         }
 
         // Hash the password before storing
-        String hashedPassword = passwordEncoder.encode(password);
 
         User user = new User();
         user.setUsername(username);
         user.setEmail(email);
-        user.setPassword(hashedPassword);
 
         return userRepository.save(user);
     }
