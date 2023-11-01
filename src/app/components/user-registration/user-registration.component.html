@@ -1,0 +1,40 @@
+<div class=" cream-bg ">
+  <div class="row justify-content-evenly g-5 mx-auto">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="row g-5">
+          <div class="col-12 col-md-12">
+            <div class="card-body d-flex flex-column">
+              <div class="h-100">
+                <h3 class="card-title text-center">Register</h3>
+                <form (ngSubmit)="register()" [formGroup]="formGroup">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Student Name</label>
+                    <input type="email" class="form-control" id="name" formControlName="name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Student Address</label>
+                    <input type="email" class="form-control" id="address" formControlName="address">
+                  </div>
+                  <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile</label>
+                    <input type="text" class="form-control" id="mobile" aria-describedby="emailHelp" formControlName="mobile">
+                  </div>
+                  <div class="row justify-content-around g-0">
+                    <div class="col-md-6 p-0">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                      <button type="button" class="btn btn-danger">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
